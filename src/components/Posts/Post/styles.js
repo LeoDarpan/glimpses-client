@@ -8,7 +8,6 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
-    padding: '10px'
   },
   media: {
     height: '40%',
