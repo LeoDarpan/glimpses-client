@@ -26,7 +26,7 @@ function App() {
                     <Typography className={'gradient__text' +  " " + classes.appHeading} variant = "h2">
                         Glimpses
                     </Typography>
-                    <img className = { classes.image } src= 'https://www.pinclipart.com/picdir/middle/97-976108_face-clipart-minion-minion-avatar-png-download.png' alt="Glimpses" height = '60' width = '60'/>
+                    <img className = { classes.image } src= 'https://i.pinimg.com/474x/f0/f6/6e/f0f66e9196fe55d62653cf56c3585435.jpg' alt="Glimpses" height = '60' width = '60'/>
                 </AppBar>
                 <Grow in> 
                     <Container>
