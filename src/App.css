@@ -35,28 +35,7 @@ p, h1, h2, h3, h4, h5, h6 {
 body{
 position: relative;
 }
-.back-to-top{
-position: fixed;
-bottom: 30px;
-right: 30px;
-border-radius: 50%;
-display: none;
-opacity: 0;
-justify-content: center;
-align-items: center;
-padding: .45rem;
-background: var(--color-bg);
-cursor: pointer;
-transition: .4s ease-in-out all;
-}
-.top-icon{
-color: white;
-font-size: 1.5rem;
-}
-a{
-  color: unset;
-  text-decoration: none;
-}
+
 .gradient__bg{
   /* ff 3.6+ */
   background:-moz-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 100%);
@@ -91,3 +70,32 @@ h1 {
 .test {
   border: 0.1px solid blue;
 }
+/* .test-div{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 0, 0, .8);
+  z-index: 10000;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.test-div__inside button{
+  justify-self: flex-end;
+  align-self: flex-start;
+  padding: 10px;
+  border-radius: 50%;
+}
+.test-div__inside{
+  height: 50%;
+  width: 50%;
+  background-color: #000000;
+  border-radius: 1rem;
+  color: white;
+  border: 1px solid blue;
+  display: grid;
+  justify-items: center;
+  padding: 20px;
+} */

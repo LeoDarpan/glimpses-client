@@ -4,7 +4,7 @@
 
 //State can't be null so here it is an empty array, as in future, the posts would be 
 //in an array.
-import {FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionConstants';
+import {FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes';
 
 const output = (posts = [], action) => {
     switch (action.type){

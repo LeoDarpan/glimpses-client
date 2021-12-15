@@ -9,6 +9,12 @@ export default makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
   },
+  box: {
+    height: '200px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   form: {
     display: 'flex',
     flexWrap: 'wrap',
