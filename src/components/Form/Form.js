@@ -33,7 +33,7 @@ const Form = ({ currentId, setCurrentId, user }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if(!currentId === 0){
+        if( currentId !== 0){
             dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
             clear();
         }else{

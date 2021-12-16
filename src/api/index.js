@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://glimpses-app.herokuapp.com' });
+const API = axios.create({ baseURL: 'http://glimpses-app.herokuapp.com' });
 //sending token back to the backend, so that the backend middleware can verify that user
 //is actually logged in.
 //This happenes before all of the below requests!!
