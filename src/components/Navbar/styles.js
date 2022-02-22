@@ -4,8 +4,14 @@ import { deepPurple } from '@material-ui/core/colors';
 export default makeStyles((theme) => ({
   [theme.breakpoints.down('sm')]: {
     appHeading: {
-      fontSize: '2rem',
+      fontSize: '1rem',
     }
+  },
+  appHeading: {
+    textTransform: 'uppercase',
+    fontFamily: 'Manrope',
+    textDecoration:'none',
+    color: '#3f51b5'
   },
   appBar: {
     borderRadius: 15,
@@ -26,16 +32,20 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'flex-end',
-    width: '400px',
   },
   profile: {
     display: 'flex',
-    justifyContent: 'space-between',
-    width: '400px',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: 'auto',
+  },
+  user: {
+    display: 'flex'
   },
   userName: {
     display: 'flex',
     alignItems: 'center',
+    marginInline: '10px'
   },
   brandContainer: {
     display: 'flex',

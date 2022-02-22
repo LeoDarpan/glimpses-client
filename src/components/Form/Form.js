@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from 'react-file-base64';
 import useStyles from './styles';
@@ -8,7 +8,8 @@ import { createPost, updatePost } from '../../actions/posts';//Import Action fro
 
 const Form = ({ currentId, setCurrentId, user }) => {
     const dispatch = useDispatch();//Create dispatch
-    const post = useSelector((state) => currentId ? state.posts.find(post => post._id === currentId) : null);
+    const history = useHistory();//To use redirect 
+    const post = useSelector((state) => currentId ? state.data.posts.find(post => post._id === currentId) : null);
     const classes = useStyles(); 
     const [postData, setPostData] = useState({
         title: '',
@@ -33,18 +34,20 @@ const Form = ({ currentId, setCurrentId, user }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if( currentId !== 0){
-            dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
+        if( currentId ){
+            dispatch(updatePost(currentId, {...postData, name: user?.result?.name}, history));
             clear();
         }else{
-            dispatch(createPost({...postData, name: user?.result?.name }));//Dispatch action here
+            dispatch(createPost({...postData, name: user?.result?.name }, history));
+            //Dispatch action here
+            history.push('/posts')
             clear();
         }
     }
 
     if(!user?.result?.name){
         return (
-            <Paper className={classes.Paper + " " + classes.box}>
+            <Paper className={classes.Paper + " " + classes.box} elevation={6}>
                 <Typography variable='h5' align='center'>
                     Please <Link to='/auth'>Sign In</Link> to share your Glimpses or like other's.
                 </Typography>
@@ -52,9 +55,9 @@ const Form = ({ currentId, setCurrentId, user }) => {
         )
     }
     return (
-        <Paper className = { classes.paper }>
+        <Paper className = { classes.paper } elevation={6}>
             <form autoComplete = 'off' noValidate className = { `${classes.root} ${classes.form}` } onSubmit = { handleSubmit }>
-                <Typography variant = "h4" className={'gradient__text__1' + " " + classes.headingFont}>{currentId ? "Edit" : "Create"} a Glimpse</Typography>
+                <Typography variant = "h5" className={'gradient__text__1' + " " + classes.headingFont}>{currentId ? "Edit" : "Create"} a Glimpse</Typography>
                 <TextField
                     name = 'title'
                     variant = 'outlined'

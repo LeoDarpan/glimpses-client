@@ -4,21 +4,34 @@
 
 //State can't be null so here it is an empty array, as in future, the posts would be 
 //in an array.
-import {FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes';
+import {FETCH_ALL, FETCH_POST, FETCH_ALL_BY_SEARCH, START_LOADING, STOP_LOADING, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes';
 
-const output = (posts = [], action) => {
+const output = (state = {isLoading: true, posts: []}, action) => {
     switch (action.type){
+        case START_LOADING:
+            return { ...state, isLoading: true }
+        case STOP_LOADING:
+            return { ...state, isLoading: false }
         case FETCH_ALL:
-            return action.payload;
+            return {
+                ...state, 
+                posts: action.payload.data,
+                currentPage: action.payload.currentPage,
+                totalPages: action.payload.totalPages, 
+            };
+        case FETCH_POST:
+            return { ...state, post: action.payload };
+        case FETCH_ALL_BY_SEARCH:
+            return { ...state, posts: action.payload };
         case CREATE:
-            return [...posts, action.payload];
+            return {...state, posts: [...state.posts, action.payload]};
         case UPDATE:
         case LIKE:
-            return posts.map((post) => post._id === action.payload._id ? action.payload : post)
+            return {...state, posts: state.posts.map((post) => post._id === action.payload._id ? action.payload : post)};
         case DELETE:
-            return posts.filter((post) => post._id !== action.payload);
+            return {...state, posts: state.posts.filter((post) => post._id !== action.payload)};
         default:
-            return posts;
+            return state;
     }       
 }
 export default output;
