@@ -1,0 +1,77 @@
+.openers {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.openers .opener-container {
+  background-color: #3f51b5;
+  color: white;
+  width: 200px;
+  transform: translateX(70%);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  font-family: "Manrope";
+  padding: 10px 0px;
+}
+.openers .opener-container .opener-icon {
+  width: 30%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.openers:hover .opener-container {
+  transform: translateX(0);
+}
+.opener-container:hover {
+  text-decoration: underline;
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  height: 100vh;
+  width: 100vw;
+  padding: 20px 40px;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(0);
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+}
+.modal .modal-close-button {
+  margin-left: auto;
+  color: white;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.modal .form {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
