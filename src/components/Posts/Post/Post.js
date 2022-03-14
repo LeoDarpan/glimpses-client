@@ -8,13 +8,14 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import './style.css';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 //Initialise dispatch
 import { useDispatch } from 'react-redux';
 //Import Action
 import { deletePost, likePost } from '../../../actions/posts';
 
 function Post({ post, setCurrentId }) {
+    const location = useLocation();
     const message = post.message;
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -54,21 +55,20 @@ function Post({ post, setCurrentId }) {
                 );
         }
         return (
-                    <>
-                        <div className="tooltip">
-                            <ThumbUpAltOutlined fontSize="medium" />
-                            <div className="tooltipText" id="likes">
-                                {post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}
-                            </div>
-                        </div>
-                    </>
-                
-            )           
-
+            <>
+                <div className="tooltip">
+                    <ThumbUpAltOutlined fontSize="medium" />
+                    <div className="tooltipText" id="likes">
+                        {post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}
+                    </div>
+                </div>
+            </>
+        )           
     };
 
     const openPost = () => {
-        history.push(`posts/${post._id}`)
+        location.pathname = '/posts';
+        history.push(`${location.pathname}/${post._id}`);
     }
 
     return (
@@ -107,12 +107,12 @@ function Post({ post, setCurrentId }) {
                 </CardContent>
             </ButtonBase>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
+                <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
                     <Likes />
                 </Button>
                 {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
                     <div className="tooltip">
-                        <Button className="button" size="medium" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
+                        <Button className="button" size="medium" color="secondary" onClick={ handleDelete }>
                             <DeleteIcon fontSize="medium" />
                         </Button>
                         <div className="tooltipText tooltipText-delete" id="delete">DELETE</div>

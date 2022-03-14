@@ -31,12 +31,13 @@ const SearchForm = () => {
     const query = useQuery();//To get the page info
     const history = useHistory();
     const page = query.get('page') || 1; 
+    const location = useLocation();
     
     //Give value to the variable only if there is 'page' string in the URL or Give it the first page
     const searchQuery = query.get('searchQuery');
     
     const handleKeyPress = (event) => {  
-        if(event.keyCode === 13){
+        if(event.which === 13){
             searchPost()
         }
     }
@@ -51,10 +52,10 @@ const SearchForm = () => {
 
     const searchPost = () => {
         if(search.trim() === '' && tags.join(',')  === ''){
-            history.push('/');
+            history.push('/posts');
         }else{
             dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
-            history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+            history.push( `${location.pathname}/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
         }
     }
 
@@ -67,7 +68,7 @@ const SearchForm = () => {
             fullWidth
             value={search}
             onChange={(event) => {setSearch(event.target.value)}}
-            onKeyPress={handleKeyPress}
+            onKeyUp={handleKeyPress}
         />
         <ChipInput
             style={{margin: '10px 0px'}}
