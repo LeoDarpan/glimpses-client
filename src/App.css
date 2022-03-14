@@ -98,35 +98,3 @@ body {
 h1 {
   text-align: center;
 }
-.test {
-  border: 0.1px solid blue;
-}
-/* .test-div{
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 0, 0, .8);
-  z-index: 10000;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-.test-div__inside button{
-  justify-self: flex-end;
-  align-self: flex-start;
-  padding: 10px;
-  border-radius: 50%;
-}
-.test-div__inside{
-  height: 50%;
-  width: 50%;
-  background-color: #000000;
-  border-radius: 1rem;
-  color: white;
-  border: 1px solid blue;
-  display: grid;
-  justify-items: center;
-  padding: 20px;
-} */

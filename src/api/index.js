@@ -1,6 +1,6 @@
 import axios from 'axios';
 //Replace the local url with the heroku url after deploying the backend first
-const API = axios.create({ baseURL: 'https://glimpses-app.herokuapp.com/' });
+const API = axios.create({ baseURL: 'http://localhost:5000' });
 
 //sending token back to the backend, so that the backend middleware can verify that user
 //is actually logged in.

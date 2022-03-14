@@ -4,13 +4,13 @@ import "./App.css";
 
 import { Container } from '@material-ui/core';
 
-import { Navbar, Home, Auth, PostDetails } from './components';
+import { Navbar, Home, Auth, PostDetails, Openers } from './components';
 
 function App() {
     const [user, setUser] = useState(null);
 
     return (
-        <div>
+        <div className="main-container">
             <Router>
                 <Container  maxWidth = 'xl'>
                     <Navbar user={user} setUser={setUser} />

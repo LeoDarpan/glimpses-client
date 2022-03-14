@@ -5,3 +5,5 @@ export { default as Home } from './Home/Home';
 export { default as Auth } from './Auth/Auth';
 export { default as Pagination } from './Pagination/Pagination';
 export { default as PostDetails } from './PostDetails/PostDetails';
+export { default as Openers } from './Openers/Openers';
+export { default as SearchForm } from './SearchForm/SearchForm';

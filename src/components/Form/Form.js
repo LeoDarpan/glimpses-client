@@ -47,7 +47,7 @@ const Form = ({ currentId, setCurrentId, user }) => {
 
     if(!user?.result?.name){
         return (
-            <Paper className={classes.Paper + " " + classes.box} elevation={6}>
+            <Paper className={classes.paper + " " + classes.box} elevation={6}>
                 <Typography variable='h5' align='center'>
                     Please <Link to='/auth'>Sign In</Link> to share your Glimpses or like other's.
                 </Typography>

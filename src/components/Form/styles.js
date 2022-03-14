@@ -10,10 +10,10 @@ export default makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   box: {
-    height: '200px',
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   form: {
     display: 'flex',
