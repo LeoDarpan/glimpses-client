@@ -67,7 +67,7 @@ const PostDetails = () => {
                                     <Typography gutterbottom='true' variant='subtitle1'>Likes: {likes.length}</Typography>
                                     <img src={selectedFile} alt="Post Image" width='200px' height='200px' className={classes.recImage}/> 
                                 </div>
-                            ))}
+                            )).splice(0,3)}
                         </div>
                     </div>
                 )
