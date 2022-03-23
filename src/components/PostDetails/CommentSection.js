@@ -32,8 +32,8 @@ const CommentSection = ({ post }) => {
           {
             comments.length ? (comments.map((comment, index) => (
               <Typography variant='subtitle1' key={index} gutterBottom>
-                <strong>{comment.split(': ')[0]}</strong>
-                {':'  + comment.split(': ')[1]}
+                <strong>{comment.split(':')[0]}</strong>
+                {': '  + comment.split(':')[1]}
               </Typography>
             ))) : (
               <Typography variant='subtitle2' gutterBottom>
@@ -45,8 +45,8 @@ const CommentSection = ({ post }) => {
         </div>
         {
           user?.result?.name ? (
-            <div style={{width: '60%'}}>
-              <Typography gutterBottom variant='h6'>Write a Comment</Typography>
+            <div style={{width: '60%', padding: '10px'}}>
+              <Typography gutterBottom variant='h6' className={classes.heading}>Write a Comment</Typography>
               <TextField 
                 fullWidth
                 rows={4}

@@ -11,7 +11,6 @@ export default makeStyles((theme) => ({
     margin: '0 auto',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
   },
   smMargin: {
