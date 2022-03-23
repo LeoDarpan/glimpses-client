@@ -64,9 +64,8 @@ const PostDetails = () => {
                                 <div style={{margin: '20px', cursor: 'pointer'}} onClick={() => openPost(_id)} key={_id}>
                                     <Typography gutterbottom='true' variant='h6' className={classes.heading}>{title}</Typography>
                                     <Typography gutterbottom='true' variant='subtitle2' className={classes.mb}>{name}</Typography>
-                                    <Typography gutterbottom='true' variant='subtitle2' className={classes.mb}>{message}</Typography>
                                     <Typography gutterbottom='true' variant='subtitle1'>Likes: {likes.length}</Typography>
-                                    <img src={selectedFile} alt="Post Image" width='200px'/> 
+                                    <img src={selectedFile} alt="Post Image" width='200px' height='200px' className={classes.recImage}/> 
                                 </div>
                             ))}
                         </div>

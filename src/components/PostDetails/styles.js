@@ -55,5 +55,9 @@ export default makeStyles((theme) => ({
     fontFamily: 'Manrope',
     fontWeight: 'bold',
     padding: '10px'
+  },
+  recImage: {
+    objectFit: 'cover',
+    borderRadius: '20px'
   }
 }));
