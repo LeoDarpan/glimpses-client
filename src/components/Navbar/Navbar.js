@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import * as actionType from '../../constants/actionTypes';
 import decode from 'jwt-decode';
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
-import LogoutRoundedIcon from '@mui/icons-material/LoginRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import BungalowRoundedIcon from '@mui/icons-material/BungalowRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import './style.css';
@@ -58,10 +58,10 @@ const Navbar = ({ user, setUser }) => {
                 <div className={classes.toolbar}>
                     <div className='icon-box'>
                         {/* <Button component={Link} to ='/auth' variant='contained' color='primary'><LoginRoundedIcon className="icon" /></Button> */}
-                        <Link to ='/' className={classes.link + "link"}>
+                        <Link to ='/' className={classes.link}>
                             <BungalowRoundedIcon className="icon" />
                         </Link>
-                        <div className="tooltip" style={{left: "-15px", top: "45px"}} >HOME</div>
+                        <div className="tooltip" style={{left: "-10px", top: "45px"}} >HOME</div>
                     </div>
                 </div>
                 <div className={ classes.brandContainer }>
@@ -85,10 +85,10 @@ const Navbar = ({ user, setUser }) => {
                                             }
                                         </h2>
                                         <div className='icon-box'>
-                                            <div className={classes.link + "link"}>
+                                            <div className={classes.link}>
                                                 <LogoutRoundedIcon className="icon logout-icon" onClick={ logout } />
                                             </div>
-                                            <div className="tooltip tooltip-logout">LOGOUT</div>
+                                            <div className="tooltip tooltip-logout">SIGN OUT</div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@ const Navbar = ({ user, setUser }) => {
                         ) : (
                             <div className='icon-box'>
                                 {/* <Button component={Link} to ='/auth' variant='contained' color='primary'><LoginRoundedIcon className="icon" /></Button> */}
-                                <Link to ='/auth' className={classes.link + "link"}>
+                                <Link to ='/auth' className={classes.link}>
                                     <LoginRoundedIcon className="icon" />
                                 </Link>
                                 <div className="tooltip">SIGN IN</div>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useHistory } from 'react-router-dom'; 
 import useStyles from './styles';
-
+import CommentSection from './CommentSection';
 import { getPost, getPostsBySearch } from '../../actions/posts';
 
 const PostDetails = () => {
@@ -38,16 +38,16 @@ const PostDetails = () => {
     const recposts = posts.filter(({_id}) => _id !== post._id);
 
     return (
-        <Paper style={{padding: '20px', borderRadius: '15px'}}>
+        <Paper style={{padding: '20px', borderRadius: '15px', marginBottom: '20px'}}>
             <div className={ classes.card }>
                 <div className={classes.section}>
-                    <Typography variant='h3' component='h2'>{post.title}</Typography>
-                    <Typography variant='h6' gutterbottom='true' color='textSecondary' component='h2'>{post.tags.map((tag) => `#${tag} `)}</Typography>
-                    <Typography variant='body1' gutterbottom='true' component='p'>{post.message}</Typography>
+                    <Typography variant='h3' component='h2' className={classes.heading + ' ' + classes.mb}>{post.title}</Typography>
+                    <Typography variant='h6' className={classes.mb} gutterbottom='true' color='textSecondary' component='h2'>{post.tags.map((tag) => `#${tag} `)}</Typography>
+                    <Typography variant='body1' gutterbottom='true' className={classes.mb} component='p'>{post.message}</Typography>
                     <Typography variant='h6'>Created by: {post.name}</Typography>
                     <Typography variant='body1'>{moment(post.createdAt).fromNow()}</Typography>
                     <Divider style={{margin: '20px 0'}}/>
-                    <Typography variant='body1'><strong>Comments - coming soon!</strong></Typography>
+                        <CommentSection post={post}/>
                     <Divider style={{margin: '20px 0'}}/>
                 </div>
                 <div className={classes.imageSection}>
@@ -57,14 +57,14 @@ const PostDetails = () => {
             {
                 recposts.length > 0 && (
                     <div className={classes.section}>
-                        <Typography gutterbottom='true' variant='h5'>You might also like</Typography>
+                        <Typography gutterbottom='true' variant='h5' className={classes.heading}>You might also like</Typography>
                         <Divider />
                         <div className={classes.recommendedPosts}>
                             {recposts.map(({title, message, likes, selectedFile, name, _id}) => (
                                 <div style={{margin: '20px', cursor: 'pointer'}} onClick={() => openPost(_id)} key={_id}>
-                                    <Typography gutterbottom='true' variant='h6'>{title}</Typography>
-                                    <Typography gutterbottom='true' variant='subtitle2'>{name}</Typography>
-                                    <Typography gutterbottom='true' variant='subtitle2'>{message}</Typography>
+                                    <Typography gutterbottom='true' variant='h6' className={classes.heading}>{title}</Typography>
+                                    <Typography gutterbottom='true' variant='subtitle2' className={classes.mb}>{name}</Typography>
+                                    <Typography gutterbottom='true' variant='subtitle2' className={classes.mb}>{message}</Typography>
                                     <Typography gutterbottom='true' variant='subtitle1'>Likes: {likes.length}</Typography>
                                     <img src={selectedFile} alt="Post Image" width='200px'/> 
                                 </div>
