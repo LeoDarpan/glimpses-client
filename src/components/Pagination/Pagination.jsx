@@ -20,7 +20,7 @@ const Paginate = ({page}) => {
         if(page) dispatch(getPosts(page));
     }, [page]);
     
-    if (page > 1) return  (
+    if (totalPages > 1) return  (
         <Pagination 
             classes={{ ul: classes.ul }}
             count={totalPages}
