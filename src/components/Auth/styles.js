@@ -27,4 +27,13 @@ export default makeStyles((theme) => ({
   googleButton: {
     marginBottom: theme.spacing(2),
   },
+  messageBox: {
+    textAlign: 'center',
+    width: '100%',
+    color: '#F50007'
+  },
+  message:{
+    fontStyle: 'italic',
+    textTransform: 'uppercase',
+  }
 }));

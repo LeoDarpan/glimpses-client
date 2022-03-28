@@ -19,6 +19,8 @@ const Auth = () => {
     const classes = useStyles();
     const [isSignup, setIsSignup] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [loginFailure, setLoginFailure] = useState(false);
+    const [message, setMessage] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
     const [formData, setFormData] = useState(initialState);
@@ -55,6 +57,8 @@ const Auth = () => {
     const googleFailure = (error) => {
         console.log("Google Sign in failed. Try again later!")
         console.log(error);
+        setLoginFailure(true);
+        setMessage(error);
     }
     return (
         <Container component='main' maxWidth='xs'>
@@ -101,6 +105,9 @@ const Auth = () => {
                             type={showPassword ? 'text' : 'password'}
                             handleShowPassword={handleShowPassword}
                         />
+                        {
+                            loginFailure && <Typography variant='text' className={classes.messageBox}>Google Login failure. <span className={classes.message}>{message.error}</span></Typography>
+                        }
                         {
                             isSignup && <Input name='confirmPassword' type='password' handleChange={handleChange} label='Confirm Password'/>
                         }

@@ -18,9 +18,9 @@ const Paginate = ({page}) => {
     
     useEffect(() => {
         if(page) dispatch(getPosts(page));
-    }, [page]);
+    }, [dispatch, page]);
     
-    if (page > 1) return  (
+    if (totalPages > 1) return  (
         <Pagination 
             classes={{ ul: classes.ul }}
             count={totalPages}

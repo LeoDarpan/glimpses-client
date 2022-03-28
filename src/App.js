@@ -4,7 +4,7 @@ import "./App.css";
 
 import { Container } from '@material-ui/core';
 
-import { Navbar, Home, Auth, PostDetails, Openers } from './components';
+import { Navbar, Home, Auth, PostDetails } from './components';
 
 function App() {
     const [user, setUser] = useState(null);
