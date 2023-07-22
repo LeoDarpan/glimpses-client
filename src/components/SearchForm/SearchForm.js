@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux'; //Allows dispatching actions
 import { getPostsBySearch } from '../../actions/posts';
 
 //To search and To get the current page address and to decide where to send
-import ChipInput from 'material-ui-chip-input';
+import { MuiChipsInput } from 'mui-chips-input';
 
 //This function can be used as a hook
 const useQuery = () => {
@@ -70,13 +70,13 @@ const SearchForm = () => {
             onChange={(event) => {setSearch(event.target.value)}}
             onKeyUp={handleKeyPress}
         />
-        <ChipInput
+        <MuiChipsInput
             style={{margin: '10px 0px'}}
             value={tags}
-            onAdd={handleAdd}
-            onDelete={handleDelete}
             label="Search Tags"
             variant="outlined"
+            onAddChip={handleAdd}
+            onDeleteChip={handleDelete}
         />
         <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">
             Search
