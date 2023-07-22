@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
     alignItems: 'center', 
     padding: '20px', 
     borderRadius: '15px', 
-    height: '75vh',
+    height: 'calc(100vh - 150px)',
   },
   noPosts: {
     display: 'flex',
