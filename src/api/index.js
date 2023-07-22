@@ -1,6 +1,6 @@
 import axios from 'axios';
 //Replace the local url with the heroku url after deploying the backend first
-const API = axios.create({ baseURL: 'https://glimpses-app.herokuapp.com/' });
+const API = axios.create({ baseURL: 'https://glimpses-server.onrender.com/' });
 
 //sending token back to the backend, so that the backend middleware can verify that user
 //is actually logged in.
@@ -11,7 +11,7 @@ API.interceptors.request.use((request) => {
         request.headers.authorization = 'Bearer ' + JSON.parse(localStorage.getItem('profile')).token;
     }
     return request;
-})
+});
 
 
 export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
